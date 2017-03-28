@@ -7,8 +7,8 @@ using namespace std;
 
 int main()
 {
-    vector<int64_t> method(101, 0); //»áÔ½½ç
-
+    vector<int64_t> method(101, 0); //ä¼šè¶Šç•Œ
+    
     method[0] = 1;
     method[1] = 1;
     method[2] = 2;
