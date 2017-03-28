@@ -7,28 +7,31 @@ using namespace std;
 
 int main()
 {
-    vector<int64_t> method(101, 0); //会越界
+    vector<int64_t> method; //会越界
 
-    method[0] = 1;
-    method[1] = 1;
-    method[2] = 2;
-
-    for(int n = 10; n < 100; n++)
+    for(int n = 1; n < 100; n++)
     {
+        method.push_back(1);
+        method.push_back(1);
+        method.push_back(2);
+
         for(int i = 3; i <= n; i++)
         {
+            int tmp = 0;
             if(i >= 5)
             {
-                method[i] += method[i-5];
+                tmp += method[i-5];
             }
             if(i >= 10)
             {
-                method[i] += method[i-10];
+                tmp += method[i-10];
             }
 
-            method[i] += method[i-1] + method[i-2];
+            tmp += method[i-1] + method[i-2];
+            method.push_back(tmp);
         }
         cout << n << " " << method[n] << endl;
+        method.clear();
     }
 
     return 0;
