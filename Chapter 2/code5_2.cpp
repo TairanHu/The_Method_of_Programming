@@ -10,17 +10,9 @@ int dp[maxn][maxsum] = {0};
 
 int main()
 {
-<<<<<<< HEAD
     int sum = 100;
     int n = 4;
     int v[5] = {0, 1, 2, 5, 10};
-=======
-    vector<int64_t> method(101, 0); //会越界
-    
-    method[0] = 1;
-    method[1] = 1;
-    method[2] = 2;
->>>>>>> origin/master
 
     dp[0][0] = 1;
     for(int i = 1; i <= n; ++i)
