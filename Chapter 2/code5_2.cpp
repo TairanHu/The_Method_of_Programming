@@ -1,40 +1,39 @@
 
-
-#include <iostream>
-#include <vector>
-
+#include<iostream>
+#include<vector>
 using namespace std;
+
+const int maxn = 10;
+const int maxsum = 1000;
+
+int dp[maxn][maxsum] = {0};
 
 int main()
 {
-    vector<int64_t> method; //ª·‘ΩΩÁ
+    int sum = 100;
+    int n = 4;
+    int v[5] = {0, 1, 2, 5, 10};
 
-    for(int n = 1; n < 100; n++)
+    dp[0][0] = 1;
+    for(int i = 1; i <= n; ++i)
     {
-        method.push_back(1);
-        method.push_back(1);
-        method.push_back(2);
-
-        for(int i = 3; i <= n; i++)
+        for(int j = 0; j <= sum; ++j)
         {
-            int tmp = 0;
-            if(i >= 5)
+            if(j == 0)
             {
-                tmp += method[i-5];
+                dp[i][j] = 1;
             }
-            if(i >= 10)
+            else
             {
-                tmp += method[i-10];
+                dp[i][j] = 0;
+                for(int xi = 0; xi <= j/v[i]; ++xi)
+                {
+                    dp[i][j] += dp[i-1][j-(xi*v[i])];
+                }
             }
-
-            tmp += method[i-1] + method[i-2];
-            method.push_back(tmp);
         }
-        cout << n << " " << method[n] << endl;
-        method.clear();
     }
+    cout << dp[n][sum] << endl;
 
     return 0;
 }
-
-
