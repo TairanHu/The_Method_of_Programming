@@ -17,8 +17,6 @@ int main()
     {
         int mid = (l+r)/2;
 
-        cout << l << " " << r << " " << mid << endl;
-
         if(test[mid] == 0)
         {
             dis = 0;
